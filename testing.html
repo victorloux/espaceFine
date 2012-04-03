@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>ThinSpace</title>
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="thinsp.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$('.thinsp').thinsp(); // or use $.thinsp() to apply to all the page
+		//$.thinsp();
+	});
+	</script>
+	
+	<style type="text/css">
+		body {
+			font-family: "Fengardo Neue", "Fengardo", Arial, sans-serif;
+			font-size: 1.3em;
+			line-height: 1.2em;
+			padding: 50px;
+			margin: 0;
+			background-color: #FCFCFC;
+		}
+		
+		p {
+			width: 600px;
+			margin: 10px 30px;
+			color: #666;
+		}
+		
+		p.thinsp {
+			margin-bottom: 30px;
+			color: #000;
+		}
+		
+		.quote {
+					text-indent: -0.7em;
+		}
+		
+		.small {
+			font-size: 0.7em;
+			line-height: 1.1em;
+		}
+		
+		/*** REMOVE THE LINES BELOW TO DISCARD THE RED LINE UNDER THIN SPACES  ***/
+		
+		span {
+			padding-bottom: 2px;
+			border-bottom: 5px solid #FFA59A;
+		}
+		
+		.small span {
+			padding-bottom: 0;
+			border-bottom: 2px solid #FFA59A;
+		}
+	</style>
+</head>
+<body>
+
+	<p>Ulysse est idiot ! Pourquoi ? Il est tombé sur la tête !</p>
+	<p class="thinsp">Ulysse est idiot ! Pourquoi ? Il est tombé sur la tête !</p>
+	
+
+	<p>Ulysse est idiot! Pourquoi? Il est tombé sur la tête! (sans espace)</p>
+	<p class="thinsp">Ulysse est idiot! Pourquoi? Il est tombé sur la tête!</p>
+
+
+	<p>Polyphème est anthropophage : il mange de la chair humaine.</p>
+	<p class="thinsp">Polyphème est anthropophage : il mange de la chair humaine.</p>
+
+	<p class="quote">&laquo; Quand je sortis de ce Léthé, je me trouvai entre deux femmes ; les odalisques étaient revenues ; elles n’avaient pas voulu me réveiller [&hellip;] »</p>
+	<p class="thinsp quote">&laquo; Quand je sortis de ce Léthé, je me trouvai entre deux femmes ; les odalisques étaient revenues ; elles n’avaient pas voulu me réveiller [&hellip;] &raquo;</p>
+	
+	<p class="small quote">&laquo;   Le soir viendrait ; toi qui es fort… tiens ; prends l'épée ; — tu me défendrais contre les bêtes. — Je voudrais reposer, près de ta force ! Ah ! j'étouffe ! — Tiens, prends la pourpre. — Détache ce manteau. »</p>
+	
+	<p class="thinsp small quote">&laquo;Le soir viendrait ; toi qui es fort… tiens ; prends l'épée ; — tu me défendrais contre les bêtes. — Je voudrais reposer, près de ta force ! Ah ! j'étouffe ! — Tiens, prends la pourpre. — Détache ce manteau.  &raquo;</p>
+
+
+</body>
+</html>

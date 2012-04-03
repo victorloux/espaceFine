@@ -1,0 +1,84 @@
+ThinSpace - A jQuery plugin that automatically inserts
+non-breakable thin spaces before punctuation in French texts.
+ 
+This program is free software. It comes without any warranty, to
+the extent permitted by applicable law. You can redistribute it
+and/or modify it under the terms of the Do What The Fuck You Want
+To Public License, Version 2, as published by Sam Hocevar. See
+http://sam.zoy.org/wtfpl/COPYING for more details.
+
+
+USAGE:
+
+1.	Make sure your code is linked to both jQuery and the plugin
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="thinsp.js"></script>
+	
+	(we highly recommend using a minified version of the plugin for production use)
+	
+2.	To apply ThinSpace to your whole page, just add this line to your document.ready method:
+	
+		$.thinsp();
+		
+	And you're done.
+	If you'd rather apply it only on a specific element, just use this syntax:
+	
+		$("#myelement").thinsp();
+
+
+
+I DIDN'T UNDERSTAND IT!
+
+Not a problem. Just make sure you put "thinsp.min.js" into your working folder,
+then paste this in the head of your document:
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="thinsp.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$.thinsp();
+	});
+</script>
+
+Ta-da! You're done!
+
+
+ADVANCED USERS
+
+You can pass an argument to the function to set the width of your space.
+For instance, if you'd rather have a space that's 1/10th the width of a normal space,
+use $("#element").thinsp("0.10em"); (as 0.10 em is 1/10th of an em).
+This might be useful if you use custom typefaces that have large spaces.
+
+You can also pass "true" as an argument to use the narrow unbreakable space Unicode entity.
+This is not supported by all browsers and OSes so be careful when using this.
+
+My plugin is instead putting a normal non-breakable space entity
+wrapped in a <span> that has a font-size of 0.25em before the double sign.
+Although I wholeheartedly agree that this is not the fastest and better-looking solution,
+it is the only one that works on every browser and OS.
+
+More on this subject (in French):
+http://fvsch.com/code/espaces-unicode/
+http://dascritch.net/post/2011/05/09/Les-espacements-unicodes
+http://typographisme.net/post/Les-espaces-typographiques-et-le-web
+
+
+NOTE ABOUT GUILLEMETS
+
+This plugin applies thin non-breaking space inside guillemets «| … |» and after em dashes.
+It doesn't work on other quotation marks and won't convert straight or curly quotes to guillemets.
+
+I am aware of the fact that the "Lexicon of the typographical rules of use
+with national Printing works" used in France recommends to use only normal non-breaking
+spaces and not thin ones, and normal spaces after em dashes.
+However I decided to use a thin space as in Swiss custom and as a personal preference.
+If you'd rather not use these you can change line 61 and 62 of the plugin to:
+
+   		/(?: +)?([\?|!|:|;])/g, // Regexp
+   		space + "$1")); // Replacement
+
+    		
+But note that this will not put normal non-breaking space instead,
+so you will have to manually put &nbsp; entities inside them.
