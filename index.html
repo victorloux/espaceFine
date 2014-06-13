@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>espaceFine.js</title>
+    
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="../src/espacefine.js"></script>
+
+    
+    <script type="text/javascript">
+    $(function(){
+        espaceFine($('p:not(.normalsp), h1, h2'));
+        
+        $('.nojs').hide(); // Fallback si JS est désactivé
+
+        // Activer/masquer la coloration        
+        var colourState = true;
+        $('a.toggleColour').click(function() {
+            if (colourState) {
+                col = "transparent";
+                txt = "Afficher";
+            }
+            else {
+                col = "#FFA59A";
+                txt = "Masquer";
+            }
+    
+            $('#examples span').css('border-bottom-color', col);
+            colourState = !colourState;
+            $(this).text(txt + " la coloration");
+            return false;
+        });
+    });
+    </script>
+</head>
+<body>
+
+    <h1><strong>espaceFine.js</strong> — automatiser les espaces ﬁnes sur le web</h1>
+
+<div id="content">
+    <h2 class="first" id="introduction">Introduction</h2>
+    
+    <p>espaceFine.js est un script permettant d’utiliser et de placer automatiquement des espaces fines insécables sur le Web. Il s’agit pour le moment encore d’une expérimentation, sûrement imparfaite mais qui satisfera les typographes passionnés en attendant une amélioration pour un usage plus généralisé sur des sites riches en contenu.</p>
+    
+    <p>Le premier problème majeur avec l’espace fine insécable Unicode (U+8239) est son incompatibilité native avec certains navigateurs et certaines fontes, ce qui la rend impraticable à utiliser. Afin de pallier à ce problème, j'ai choisi une solution moins sémantique mais toutefois efficace : placer, avant chaque signe double, une espace insécable (<code>&amp;nbsp;</code>) entourée d’un <code>&lt;span&gt;</code> d’un corps réduit<sup>*</sup>, rendant l’espace plus fine qu’une espace mot mais toujours insécable. Le deuxième problème majeur est sa difficulté à mettre en place : sur le Net, il est rarement possible et complexe de faire une correction orthotypographique sur tous les textes d'un site. C'est pourquoi espaceFine.js automatise cela : il vous suffit de l’appeler, et tous les signes doubles et guillemets seront corrigés.</p>
+    
+    <p>espaceFine.js est une solution flexible. Il s’agit d’une fonction Javascript très légère (<&nbsp;1&nbsp;kb minifiée), portable (fonctionne avec IE6+, Gecko et WebKit) et très simple à utiliser. Il est possible d’appliquer les espaces fines à certains éléments seulement et non toute la page, si vous le souhaitez. Sa modification est simple et vous pouvez facilement changer les caractères qui seront précédés d'une espace fine, modifier la chasse, ou utiliser le caractère Unicode dédié pour une solution plus propre, sans avoir recours à des <code>&lt;span&gt;</code>, mais cela reste à vos risques et périls (il y a un risque que l’espace disparaisse, soit remplacée par un carré ou un point d’interrogation sur certains navigateurs qui ne le reconnaissent pas).</p>
+        
+    <p class="footnote"><sup>*</sup> L’espace mot a, dans la majorité des fontes, une chasse d’&frac14; de cadratin. Une espace fine a, en théorie, une chasse d’un cinquième de cadratin. Par défaut le nouveau corps est de &frac23; (0,67&nbsp;em) fois celui d’une espace normale insécable afin de s'approcher le plus près de la taille d'une espace fine.</p>
+    
+    <h2 id="exemples">Exemples</h2>
+    
+    <p class="nojs"><strong>Javascript est désactivé sur votre navigateur. Le script ne fonctionnera pas.</strong></p>
+    
+    <em><a href="#" class="toggleColour">Masquer la coloration</a></em>
+    <div id="examples">
+        <p class="normalsp">Ulysse est idiot ! Pourquoi ? Il est tombé sur la tête !</p>
+        <p>Ulysse est idiot ! Pourquoi ? Il est tombé sur la tête !</p>
+        
+    
+        <p class="normalsp">Ulysse est idiot! Pourquoi? Il est tombé sur la tête! (sans espace)</p>
+        <p>Ulysse est idiot! Pourquoi? Il est tombé sur la tête!</p>
+    
+    
+        <p class="normalsp">Polyphème est anthropophage : il mange de la chair humaine.</p>
+        <p>Polyphème est anthropophage : il mange de la chair humaine.</p>
+    
+        <p class="normalsp quote">&laquo; Quand je sortis de ce Léthé, je me trouvai entre deux femmes ; les odalisques étaient revenues ; elles n’avaient pas voulu me réveiller [&hellip;] »</p>
+        <p class="quote">&laquo; Quand je sortis de ce Léthé, je me trouvai entre deux femmes ; les odalisques étaient revenues ; elles n’avaient pas voulu me réveiller [&hellip;] &raquo;</p>
+        
+        <p class="normalsp small quote">&laquo;  Le soir viendrait ; toi qui es fort… tiens ; prends l'épée ; — tu me défendrais contre les bêtes. — Je voudrais reposer, <em>près de ta force !</em> Ah ! j'étouffe ! — Tiens, prends la pourpre. — Détache ce manteau. »</p>
+        
+        <p class="small quote">&laquo;Le soir viendrait ; toi qui es fort… tiens ; prends l'épée ; — tu me défendrais contre les bêtes. — Je voudrais reposer, <em>près de ta force !</em> Ah ! j'étouffe ! — Tiens, prends la pourpre. — Détache ce manteau.  &raquo;</p>
+    </div>
+
+    <h2 id="utilisation">Utilisation</h2>
+        
+    <p>Il vous faut, en premier lieu, inclure le script espaceFine que vous pouvez <a href="https://github.com/DeadPx/espaceFine/zipball/master">télécharger ici</a>. La version minifiée, recommandée pour des sites en production, se situe dans <code>dist/espacefine.min.js</code> ; la source complète et annotée se trouve dans le dossier <code>src</code>. Placez ce code dans la partie <code>&lt;head&gt;</code> de votre page Web (pensez à corriger le chemin de <code>espaceFine.min.js</code> si nécessaire) :</p>
+
+    <pre><code><span class="keywords">&lt;script</span> type=<span class="string">"text/javascript"</span> src=<span class="string">"js/espacefine.min.js"</span><span class="keywords">&gt;&lt;/script&gt;</span></code></pre>
+    
+    <p>Ensuite appelez <code>espaceFine()</code> lorsque le DOM est prêt :</p>
+    
+    <pre><code><span class="keywords">&lt;script</span> type=<span class="string">"text/javascript"</span><span class="keywords">&gt;</span>
+document.<span class="keywords">addEventListener</span>(<span class="string">"DOMContentLoaded"</span>, <span class="keywords">function</span>(event) { 
+    espaceFine();
+});
+<span class="keywords">&lt;/script&gt;</span></code></pre>
+    
+    <p>(attention <code>DOMContentLoaded</code> ne marche pas sur les anciens navigateurs (IE <&nbsp;9), si vous utilisez jQuery il est plus judicieux de placer <code>espaceFine()</code> dans votre fonction <code>.ready()</code>, ou bien d'utiliser <code>window.onload</code>)</p>
+
+    <p>Et voilà, c'est tout ! Le script s'exécutera automatiquement, et dans tout votre page les espaces fines insécables seront ajoutées avant les ponctuations hautes ! : ? ; et à « l'intérieur des guillemets ». Le script omet volontairement le contenu des balises <code>code</code>, <code>pre</code> et <code>textarea</code> car les espaces doivent y être normales.</p>
+    
+    <h3>Choix du sélecteur</h3>
+    
+    <p>Si vous ne souhaitez pas corriger toute la page, il vous suffit de passer un élément, NodeList ou sélecteur jQuery comme argument :</p>
+    
+    <pre><code><span class="comments">// Ne s'applique qu'à un seul élément</span>
+espaceFine(document.getElementById(<span class="string">"fine"</span>));
+
+<span class="comments">// Ne s'applique qu'à certaines balises ou classes</span>
+espaceFine(document.getElementsByTagName(<span class="string">"h1"</span>));
+espaceFine(document.getElementsByClassName(<span class="string">"fine"</span>));
+    
+<span class="comments">// Avec un sélecteur jQuery : tous les paragraphes
+// sauf ceux ayant une classe "normale"</span>
+<span class="keywords">var</span> selecteur = $(<span class="string">"p:not(.normale)"</span>);
+espaceFine(selecteur);</code></pre>
+    
+    <h3>Modification du script</h3>
+
+    <p>La fonction complète et annotée se situe dans le répertoire <code>src/</code>.</p>
+    
+    <p>Le premier bloc commenté vous permet de comprendre l'expression régulière utilisée, et de la modifier selon vos besoins (pour ne pas s'appliquer à certaines ponctuations, par exemple). Si par exemple vous souhaitez omettre les guillemets, vous pouvez utiliser ceci:</p>
+    
+    <pre><code><span class="keywords">var</span> regex = new <span class="keywords">RegExp</span>(<span class="string">/(\u2014)(?:\s+)?|(?:\s+)?([\?!:;])/g</span>),
+</code></pre>
+
+    <p>Le deuxième bloc décrit la chaîne qui remplace les espaces normales, vous pouvez modifier le corps, y ajoindre une classe au lieu d'utiliser un style <em>inline</em> ou bien utiliser une espace Unicode réelle.</p>
+
+    <p>Le reste du script ne devrait pas avoir besoin d'être modifié.</p>
+    
+    <h2 id="suite">Et ensuite&hellip;</h2>
+    
+    <p>À faire…</p>
+
+
+    <ul class="details">
+        <li>Plus de tests et améliorer la performance, pour une utilisation intensive.</li>
+        <li>Simplifier la personnalisation des caractères ou de la chasse à utiliser, sans avoir à éditer la fonction soi-même</li>
+        <li>Simplifier le fonctionnement avec AJAX</li>
+    </ul>
+
+    <h2 id="plus">Aller plus loin</h2>
+    
+    <ul class="details"><li><a href="http://fvsch.com/code/espaces-unicode/">FVSCH</a></li>
+    <li><a href="http://dascritch.net/post/2011/05/09/Les-espacements-unicodes">DaScritch</a></li>
+    <li><a href="http://typographisme.net/post/Les-espaces-typographiques-et-le-web">Typographisme</a></li></ul>
+    
+    <p>Je vous invite très vivement à remonter tout commentaire ou suggestion par email à <a href="mailto:hey@victorloux.fr">hey@victorloux.fr</a> ou via Twitter (@<a href="http://twitter.com/DeadPx">DeadPx</a>).</p>
+
+
+    &amp;c.
+    
+    <h2 id="licence">Licence et crédits</h2>
+    
+    <p>L'algorithme de rechercher-remplacer en JS se base sur celui de <a href="http://james.padolsey.com/javascript/find-and-replace-text-with-javascript/">James Padolsey</a>.</p>
+    
+    <p>espaceFine.js est écrit par <a href="http://victorloux.fr">Victor Loux</a>. Il est sous <a href="http://sam.zoy.org/lprab/">licence WTFPL</a>, c'est-à-dire dans le domaine public ; faites-en ce qu'il vous plaît. Le projet est <a href="https://github.com/DeadPx/espaceFine/">développé sur GitHub</a>.</p>
+    
+    <p>Cette documentation utilise la typo Fengardo Neue dessinée par <a href="http://www.akalollip.com/">Loïc Sander</a> et publiée par la fonderie <a href="http://velvetyne.fr/">Velvetyne</a>.</p>
+</div>
+
+<ul id="menu">
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#exemples">Exemples</a></li>
+    <li><a href="#utilisation">Utilisation</a></li>
+    <li><a href="#suite">Et ensuite&hellip;</a></li>
+    <li><a href="#plus">Aller plus loin</a></li>
+    <li><a href="#licence">Licence</a></li>
+    <li><a href="https://github.com/DeadPx/espaceFine/zipball/master">Télécharger &rarr;</a></li>
+</ul>   
+
+</body>
+</html>
