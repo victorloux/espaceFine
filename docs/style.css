@@ -1,0 +1,249 @@
+@font-face {
+	font-family: 'Fengardo Neue';
+	src: url('fengardo/fengardoneue_black-webfont.eot');
+	src: url('fengardo/fengardoneue_black-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fengardo/fengardoneue_black-webfont.woff') format('woff'),
+		 url('fengardo/fengardoneue_black-webfont.ttf') format('truetype'),
+		 url('fengardo/fengardoneue_black-webfont.svg#FengardoNeueBlack') format('svg');
+	font-weight: bold;
+	font-style: normal;
+
+}
+
+@font-face {
+	font-family: 'Fengardo Neue';
+	src: url('fengardo/fengardoneue_regular-webfont.eot');
+	src: url('fengardo/fengardoneue_regular-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fengardo/fengardoneue_regular-webfont.woff') format('woff'),
+		 url('fengardo/fengardoneue_regular-webfont.ttf') format('truetype'),
+		 url('fengardo/fengardoneue_regular-webfont.svg#FengardoNeueRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}		
+
+body {
+	font-family: "Fengardo Neue", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+	font-size: 1.1em;
+	line-height: 1.45em;		
+	background-color: #FCFCFC;
+	margin: 0; padding: 0 0 3em 0;
+	overflow-x: hidden;
+}
+
+
+div#content {
+	/*padding-top: 180px;*/
+	margin: 0 0 0 140px;
+	padding: 60px 0 70px 50px;
+
+    overflow-y: scroll; 
+    overflow-x: hidden; 
+    position: absolute;
+    top: 120px;
+    bottom: 0px;
+    /*width: 100%;*/
+}
+
+ul#menu {
+	position: fixed;
+	top: 180px;
+	left: 20px;
+	margin: 0; padding: 0;
+	list-style-type: none;
+}
+
+ul#menu li {
+	padding-bottom: 0.5em;
+	font-variant: small-caps;
+	text-transform: lowercase;
+}
+
+ul#menu li a:link, ul#menu li a:visited {
+	color: #444;
+	font-size: 1.1em;
+	text-decoration: none;
+}
+
+ul#menu li a:hover {
+	color: #000;
+}
+
+a:link, a:visited {
+	color: #0D508D;
+}
+
+a:hover {
+	color: #03294c;
+}
+
+a.toggleColour {
+	font-size: 0.7em;
+}
+
+abbr, acronym {
+	border-bottom: 1px dotted #777;
+	cursor: help;
+}
+
+h1 {
+	position:fixed;
+	top: 0;
+	margin: 0;
+	background: #000;
+	color: #AAA;
+	width: 100%;
+	height: 70px;
+	padding: 50px 0 0 185px;
+	font-size: 1.7em;
+	font-weight: normal;
+}
+
+h1 strong {
+	color: #FCFCFC;
+	font-weight: normal;
+	font-size: 1.2em;
+}
+
+h2 {
+	text-transform: lowercase;
+	font-variant: small-caps;
+	margin: 2em 0 0.7em 0;
+	font-size: 2.2em;
+	text-indent: -1.1em;
+}
+
+h2:first-child { margin-top: 0; }
+
+h2::before {
+	content: "\2014\2002"; /* em dash + en (half em) space */
+	font-weight: normal;
+}
+
+h3 {
+	font-size: 1.3em;
+	color: #444;
+	margin: 2em 0 1.2em 0;
+	font-weight: normal;
+}
+
+p, .details {
+	width: 100%;
+	max-width: 600px;
+	margin: 10px 0;
+	
+	text-shadow: #fff 0px 1px 1px;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+div#examples p {
+	font-size: 1.1em;
+	color: #000;
+}
+
+p.normalsp {
+	margin-top: 1.6em;
+	color: #666 !important;
+}
+
+.quote {
+			text-indent: -0.7em;
+}
+
+.small {
+	font-size: 0.8em !important;
+	line-height: 1.1em !important;
+}
+		
+#examples span {
+	padding-bottom: 2px;
+	border-bottom: 5px solid #FFA59A;
+}
+
+#examples .small span {
+	padding-bottom: 0;
+	border-bottom: 2px solid #FFA59A;
+}
+
+.footnote {
+	color: #555;
+	text-indent: -1em;
+	font-size: .8em;
+}
+
+.footnote sup {
+	width: 1.1em;
+	display: block;
+	float: left;
+}
+
+sup, sub {
+   vertical-align: baseline;
+   position: relative;
+   top: -0.4em;
+
+   margin-left: 0.1em;
+   color: brown;
+}
+sub {
+	top: 0.4em;
+}
+
+p code {
+	background: #DDD;
+	padding: 0.2em;
+}
+
+code {
+	font-size: 0.75em;
+	font-family: Consolas, "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+	letter-spacing: 0.04em;
+}
+
+pre {
+	white-space: pre-wrap;       /* css-3 */
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+
+		padding: 0.8em 1.8em;
+	margin-left: -1.8em;
+	background: #212121;
+	color: #D6D6D6;
+}
+
+code .keywords { color: #64D7FF; }
+code .string { color: #C8FF65; }
+code .comments { color: #797979; }
+code .const { color: #846FFF; }
+
+@media all and (max-width: 730px) {
+	ul#menu {
+		display: none;
+	}
+
+	div#content {
+		margin: 0;
+		padding: 15px 20px;
+		width: 100%;
+
+		position: relative; 
+		width: 90%; 
+	}
+
+	h1 {
+		position: absolute;
+		height: auto;
+		margin-bottom: 20px;
+		padding: 10px 20px 10px 18px;
+		font-size: 1.2em;
+		width: auto;
+	}
+
+	h2 {
+		text-indent: -0.7em;
+	}
+}
