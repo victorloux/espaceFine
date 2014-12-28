@@ -61,7 +61,7 @@ function espaceFine(searchNode) {
      * 
      * @type {String}
      */
-        balisesExclues = 'html,head,style,title,link,meta,script,object,iframe,pre,code,textarea';
+        balisesExclues = 'html,head,style,title,link,meta,script,object,iframe,pre,code,textarea,noscript';
 
     // Fin des paramètres
 
