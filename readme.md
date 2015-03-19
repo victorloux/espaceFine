@@ -15,10 +15,10 @@ espaceFine.js est une solution flexible. Il s’agit d’une fonction Javascript
 
 ## Utilisation ##
         
-Il vous faut, en premier lieu, inclure le script espaceFine que vous pouvez [télécharger ici](https://github.com/DeadPx/espaceFine/zipball/master) ou en checkout depuis Git. La version minifiée, recommandée pour des sites en production, se situe dans `dist/espacefine.min.js` ; la source complète et annotée se trouve dans le dossier `src`. Placez ce code dans votre page Web, de préférence juste avant de fermer `</body>` (pensez à corriger le chemin de `espaceFine.min.js` si nécessaire) :
+Il vous faut, en premier lieu, inclure le script espaceFine que vous pouvez [télécharger ici](https://github.com/DeadPx/espaceFine/zipball/master) ou avec `bower install espacefine --save` si vous utilisez Bower (marche aussi avec npm). La version minifiée, recommandée pour des sites en production, se situe dans `dist/espacefine.min.js` ; la source complète et annotée se trouve dans le dossier `src`. Placez ce code dans votre page Web, de préférence juste avant de fermer `</body>` (pensez à corriger le chemin de `espacefine.min.js` si nécessaire) :
 
 ```html
-<script type="text/javascript" src="js/espacefine.min.js"></script>
+<script type="text/javascript" src="espacefine/dist/espacefine.min.js"></script>
 ```
 
 Ensuite appelez `espaceFine()` lorsque le DOM est prêt :

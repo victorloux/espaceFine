@@ -1,0 +1,30 @@
+{
+  "name": "espacefine",
+  "version": "2.0.0",
+  "description": "Automatically add thin spaces before double punctuation in French ",
+  "main": "dist/espacefine.min.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "open test/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/victorloux/espaceFine.git"
+  },
+  "keywords": [
+    "typography",
+    "internationalisation",
+    "french",
+    "spaces",
+    "macrotypography"
+  ],
+  "author": "Victor Loux",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/victorloux/espaceFine/issues"
+  },
+  "homepage": "https://github.com/victorloux/espaceFine"
+}
