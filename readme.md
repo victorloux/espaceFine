@@ -1,6 +1,6 @@
-## Demo ##
+## Démo ##
 
-Voir [par ici](http://deadpx.github.io/espaceFine/).
+Voir [par ici](http://victorloux.github.io/espaceFine/).
 
 ## Introduction ##
     
