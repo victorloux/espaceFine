@@ -90,7 +90,8 @@ function espaceFine(searchNode) {
         _fragment,
         _isNodeList = (typeof searchNode === 'object' && /^\[object (HTMLCollection|NodeList|Object)\]$/.test(Object.prototype.toString.call(searchNode)) && (Object.prototype.hasOwnProperty.call(searchNode, 'length') /* || 'length' in searchNode */) && (searchNode.length === 0 || (typeof searchNode[0] === "object" && searchNode[0].nodeType > 0))),
         _nodes = _isNodeList ? searchNode : searchNode.childNodes,
-        _nodeIndex = _nodes.length;
+        _nodeIndex = _nodes.length,
+        _balisesExclues = balisesExclues.split(',');
         
     // var _nodes = [].slice.call(_nodesX, 0); 
 
@@ -106,7 +107,7 @@ function espaceFine(searchNode) {
             continue;
         }
 
-        if (_nodeActuel.nodeType === 1 && (balisesExclues + ',').indexOf(_nodeActuel.nodeName.toLowerCase() + ',') === -1) {
+        if (_nodeActuel.nodeType === 1 && _balisesExclues.indexOf(_nodeActuel.nodeName.toLowerCase()) === -1) {
             arguments.callee(_nodeActuel);
         }
 
