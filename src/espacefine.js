@@ -41,8 +41,8 @@ function espaceFine(searchNode) {
      * La chaîne qui remplacera les espaces.
      * Par défaut un <span> avec un corps de 2/3 de cadratin.
      * 
-     * Un réel caractère Unicode peut être utilisé (U+8239 NARROW NO-BREAK SPACE)
-     * avec l'entité &#8239; mais attention, ce caractère ne fonctionne pas dans
+     * Un réel caractère Unicode peut être utilisé (U+202F NARROW NO-BREAK SPACE)
+     * avec l'entité &#x202F; mais attention, ce caractère ne fonctionne pas dans
      * tous les navigateurs, cf.
      *   http://fvsch.com/code/espaces-unicode/
      *   http://dascritch.net/post/2011/05/09/Les-espacements-unicodes
@@ -51,7 +51,7 @@ function espaceFine(searchNode) {
      * @type {String}
      */
         espace = '<span style="font-size: 0.67em">&nbsp;</span>',
-        // espace = '&#8239;',
+        // espace = '&#x202F;',
 
     /**
      * Liste de balises à exclure ; les éléments enfants seront traversés
