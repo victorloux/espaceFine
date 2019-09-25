@@ -108,11 +108,13 @@ function espaceFine(searchNode) {
         }
 
         if (_nodeActuel.nodeType === 1 && _balisesExclues.indexOf(_nodeActuel.nodeName.toLowerCase()) === -1) {
-            arguments.callee(_nodeActuel);
+            // Invoker la fonction par son nom plutôt qu'avec `arguments.callee`
+            // pour éviter les erreurs ES5
+            espaceFine(_nodeActuel);
         }
 
         // if (_nodeActuel.nodeType === 1 && (balisesExclues + ',').indexOf(_nodeActuel.nodeName.toLowerCase() + ',') === -1) {
-        //     arguments.callee(_nodeActuel);
+        //     espaceFine(_nodeActuel);
         // }
 
         // Si le node traversé n'est pas un node de texte, ou bien que la regex
